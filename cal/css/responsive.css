@@ -1,0 +1,12 @@
+@media (max-width: 700px), (max-height: 900px) {
+  .calculator {
+    --scale: min(
+      calc((100vw - 16px) / 460),
+      calc((100vh - 16px) / 858),
+      1
+    );
+  }
+}
+@media (max-width: 360px) {
+  .calculator { --scale:min(calc((100vw - 8px) / 460),calc((100vh - 8px) / 858),1); }
+}

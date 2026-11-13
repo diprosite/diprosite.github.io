@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050914">
+
+    <title>Our Services | DEXO3</title>
+    <meta name="description" content="Explore digital tools and technology services from DEXO3.">
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        body {
+            background: #050914;
+            color: #eaf2ff;
+        }
+
+        .services-hero {
+            padding: 110px 20px 65px;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 0%, #123d7555, transparent 65%);
+        }
+
+        .eyebrow {
+            color: #39baff;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .services-hero h1 {
+            margin: 20px 0;
+            font-size: clamp(38px, 7vw, 68px);
+            line-height: 1.1;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #42c8ff, #7777ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .services-hero p {
+            max-width: 680px;
+            margin: auto;
+            color: #9eacc3;
+            line-height: 1.8;
+        }
+
+        .services-section {
+            width: min(1150px, 92%);
+            margin: 30px auto 100px;
+        }
+
+        .section-heading {
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            margin-bottom: 12px;
+            font-size: 32px;
+        }
+
+        .section-heading p {
+            color: #9eacc3;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            padding: 30px;
+            border: 1px solid #1d3555;
+            border-radius: 18px;
+            background: linear-gradient(145deg, #101d32, #091323);
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            border-color: #39baff;
+        }
+
+        .service-icon {
+            display: grid;
+            width: 58px;
+            height: 58px;
+            margin-bottom: 24px;
+            place-items: center;
+            border: 1px solid #28608b;
+            border-radius: 15px;
+            background: #12345a;
+            font-size: 27px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 13px;
+            font-size: 21px;
+        }
+
+        .service-card p {
+            min-height: 75px;
+            color: #9eacc3;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .service-link {
+            display: inline-block;
+            margin-top: 22px;
+            color: #45bfff;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .service-link:hover {
+            color: #ffffff;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 6px 11px;
+            border: 1px solid #52617a;
+            border-radius: 30px;
+            color: #b8c7dc;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .cta-section {
+            width: min(1050px, 92%);
+            margin: 0 auto 100px;
+            padding: 55px 25px;
+            border: 1px solid #24517c;
+            border-radius: 22px;
+            background: radial-gradient(ellipse at top, #164578, #0a1629 75%);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 15px;
+            font-size: clamp(25px, 4vw, 38px);
+        }
+
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 25px;
+            color: #b5c6dc;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 9px;
+            background: linear-gradient(90deg, #168be9, #655bff);
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 900px) {
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card p {
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">DEXO<span>3</span></a>
+
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="Toggle navigation" aria-expanded="false">
+                ☰
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html" aria-current="page">Services</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="services-hero">
+            <span class="eyebrow">WHAT WE OFFER</span>
+
+            <h1>Explore Our <span class="gradient-text">Services.</span></h1>
+
+            <p>
+                Discover digital tools, creative solutions, and technology
+                experiences designed to make your digital life easier.
+            </p>
+        </section>
+
+        <section class="services-section">
+
+            <div class="section-heading">
+                <h2>Our Digital Ecosystem</h2>
+                <p>One ecosystem. Multiple possibilities.</p>
+            </div>
+
+            <div class="services-grid">
+
+                <article class="service-card">
+                    <div class="service-icon">⌨️</div>
+                    <h3>DEXO3 Coding Studio</h3>
+                    <p>
+                        A browser-based coding environment for writing,
+                        experimenting with, and learning programming.
+                    </p>
+                    <a href="coding-studio/index.html" class="service-link">
+                        Explore Studio →
+                    </a>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">🧮</div>
+                    <h3>DEXO3 Calculator Hub</h3>
+                    <p>
+                        A collection of useful calculators for mathematics,
+                        science, conversions, and everyday calculations.
+                    </p>
+                    <a href="calculator-hub/index.html" class="service-link">
+                        Explore Calculators →
+                    </a>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Digital Resources</h3>
+                    <p>
+                        Helpful digital resources, guides, and information
+                        for exploring modern technology.
+                    </p>
+                    <span class="coming-soon">PLANNED</span>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">💡</div>
+                    <h3>Technology Learning</h3>
+                    <p>
+                        Educational content and learning resources to help
+                        users understand digital tools and technology.
+                    </p>
+                    <span class="coming-soon">PLANNED</span>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Creative Tools</h3>
+                    <p>
+                        A future collection of creative tools for digital
+                        design, productivity, and experimentation.
+                    </p>
+                    <span class="coming-soon">PLANNED</span>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Developer Utilities</h3>
+                    <p>
+                        Useful utilities for developers, including tools
+                        that simplify common digital tasks.
+                    </p>
+                    <span class="coming-soon">PLANNED</span>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Have an Idea for DEXO3?</h2>
+            <p>
+                Share your suggestions, questions, or ideas.
+                Your feedback can help shape the future of this ecosystem.
+            </p>
+            <a href="contact.html" class="cta-button">
+                Contact DEXO3 →
+            </a>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="currentYear"></span> DEXO3. All rights reserved.</p>
+        <p>Designed for a digital future.</p>
+    </footer>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>

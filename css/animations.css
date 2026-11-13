@@ -1,0 +1,88 @@
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.hero-content {
+    animation: fadeUp 0.9s ease both;
+}
+
+.hero-visual {
+    animation: fadeUp 1.2s ease both;
+}
+
+.status-dot {
+    animation: pulse 2s infinite;
+}
+
+.feature-card {
+    animation: fadeUp 0.7s ease both;
+}
+
+#page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #050914;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 18px;
+    color: white;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#page-loader.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-logo {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+
+.loader-logo span {
+    color: #42d9ff;
+}
+
+.loader-bar {
+    width: 160px;
+    height: 3px;
+    background: linear-gradient(90deg, #168cff, #42d9ff);
+    animation: loaderMove 1.2s ease-in-out infinite alternate;
+}
+
+#page-loader p {
+    color: #9aabc2;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+}
+
+@keyframes loaderMove {
+    from { transform: scaleX(0.2); }
+    to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

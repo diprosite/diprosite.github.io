@@ -1,0 +1,98 @@
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: color-mix(in srgb, var(--bg-primary) 90%, transparent);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.brand {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-light);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-button,
+.menu-toggle {
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    background: var(--bg-card);
+    border-radius: 9px;
+    padding: 9px 13px;
+    cursor: pointer;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.search-panel {
+    display: none;
+    position: fixed;
+    top: 76px;
+    left: 0;
+    width: 100%;
+    padding: 20px 4%;
+    z-index: 999;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+}
+
+.search-panel.open {
+    display: block;
+}
+
+.search-panel input {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: auto;
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+#search-results {
+    max-width: 700px;
+    margin: 12px auto 0;
+}
+
+#search-results a {
+    display: block;
+    padding: 8px;
+    color: var(--accent-light);
+}

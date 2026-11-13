@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050914">
+
+    <title>Contact DEXO3</title>
+    <meta name="description" content="Contact the DEXO3 digital technology ecosystem.">
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/c.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <nav class="navbar">
+        <a href="index.html" class="logo">DEXO<span>3</span></a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle navigation" aria-expanded="false">
+            ☰
+        </button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html" aria-current="page">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <section class="contact-hero">
+        <span class="eyebrow">DEXO3 SUPPORT CENTER</span>
+        <h1>Get in <span>Touch.</span></h1>
+        <p>
+            Have a question, suggestion, or technical issue?
+            Contact the DEXO3 team.
+        </p>
+    </section>
+
+    <section class="contact-container">
+
+        <div class="contact-information">
+            <h2>Contact Information</h2>
+            <p>Connect with DEXO3 through our official contact channels.</p>
+
+            <div class="info-item">
+                <span>EMAIL SUPPORT</span>
+                <a href="mailto:dexo3.web@gmail.com">
+                    dexo3.web@gmail.com
+                </a>
+            </div>
+
+            <div class="info-item">
+                <span>WEBSITE</span>
+                <a href="index.html">DEXO3 Official Website</a>
+            </div>
+
+            <div class="info-item">
+                <span>SUPPORT</span>
+                <p>Technical questions, feedback and general inquiries.</p>
+            </div>
+        </div>
+
+        <div class="contact-form-container">
+            <h2>Send a Message</h2>
+            <p>Complete the form below to contact our team.</p>
+
+            <form id="contactForm">
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name"
+                           maxlength="80" autocomplete="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email"
+                           maxlength="254" autocomplete="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a subject</option>
+                        <option>General Inquiry</option>
+                        <option>Technical Support</option>
+                        <option>Website Feedback</option>
+                        <option>Business Inquiry</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message"
+                              minlength="10" maxlength="5000"
+                              required></textarea>
+                </div>
+
+                <!-- Anti-spam honeypot -->
+                <div class="website-field" aria-hidden="true">
+                    <label for="website">Website</label>
+                    <input type="text" id="website" name="website"
+                           tabindex="-1" autocomplete="off">
+                </div>
+
+                <button type="submit" id="submitButton">
+                    Send Message →
+                </button>
+
+                <p id="formNotice" role="status" aria-live="polite">
+                    Your message will be submitted to DEXO3.
+                </p>
+
+            </form>
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <p>© <span id="currentYear"></span> DEXO3. All rights reserved.</p>
+</footer>
+
+<script src="js/navigation.js"></script>
+<script src="js/contact.js"></script>
+
+</body>
+</html>
