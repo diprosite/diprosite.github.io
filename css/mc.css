@@ -1,0 +1,134 @@
+/* MY CREATIONS */
+
+.creations-section {
+    padding: 100px 20px;
+    color: #fff;
+}
+
+.creations-container {
+    max-width: 1150px;
+    margin: auto;
+}
+
+.creations-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.creations-heading span {
+    color: #00CFFF;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.creations-heading h2 {
+    font-size: clamp(35px, 5vw, 52px);
+    margin: 15px 0;
+}
+
+.creations-heading strong {
+    background: linear-gradient(90deg, #1677FF, #00CFFF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.creations-heading p {
+    color: #94A3B8;
+    line-height: 1.8;
+}
+
+.creations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.creation-card {
+    background: rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: .35s ease;
+}
+
+.creation-card:hover {
+    transform: translateY(-9px);
+    border-color: #00CFFF;
+    box-shadow: 0 15px 40px rgba(0,207,255,.12);
+}
+
+.creation-image {
+    height: 200px;
+    overflow: hidden;
+    background: #071A35;
+}
+
+.creation-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.creation-card:hover .creation-image img {
+    transform: scale(1.07);
+}
+
+.creation-content {
+    padding: 25px;
+}
+
+.creation-tag {
+    color: #00CFFF;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.creation-content h3 {
+    font-size: 21px;
+    margin: 14px 0 10px;
+}
+
+.creation-content p {
+    color: #94A3B8;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.creation-content a {
+    display: inline-block;
+    margin-top: 12px;
+    color: #00CFFF;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.creation-content a:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+@media(max-width: 850px) {
+    .creations-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 550px) {
+    .creations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    .creation-card,
+    .creation-image img,
+    .creation-content a {
+        transition: none;
+    }
+}

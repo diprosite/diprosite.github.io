@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dexo3.wasmer.app/sitemap.xml
+Sitemap: https://diprosite.github.io/sitemap.xml

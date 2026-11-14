@@ -1,0 +1,547 @@
+
+:root {
+    --glass: rgba(255,255,255,.075);
+    --glass-border: rgba(255,255,255,.14);
+    --text: #f4f7ff;
+    --muted: #91a0b8;
+    --blue: #65aaff;
+    --purple: #a78bfa;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    min-height: 100%;
+    background: #080d19;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    overflow-x: hidden;
+
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont,
+        "SF Pro Display", "Segoe UI", sans-serif;
+
+    background:
+        radial-gradient(ellipse at 15% 15%,
+            rgba(54,111,214,.28), transparent 40%),
+        radial-gradient(ellipse at 85% 80%,
+            rgba(132,75,214,.22), transparent 40%),
+        linear-gradient(145deg,#111a2b,#080d18 65%,#151326);
+}
+
+/* Ambient lighting */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::before {
+    background: #347dff;
+    top: -130px;
+    left: -100px;
+    opacity: .25;
+}
+
+body::after {
+    background: #974dff;
+    bottom: -150px;
+    right: -100px;
+    opacity: .2;
+}
+
+/* Calculator body */
+
+#calc {
+    position: relative;
+    isolation: isolate;
+    width: min(390px,100%);
+    max-height: calc(100dvh - 24px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #526b91 transparent;
+
+    padding: 17px 16px 22px;
+
+    border-radius: 30px 30px 45px 45px;
+
+    background:
+        linear-gradient(145deg,
+            rgba(77,88,108,.83),
+            rgba(23,29,42,.95) 45%,
+            rgba(12,17,28,.97));
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    box-shadow:
+        0 35px 90px rgba(0,0,0,.65),
+        0 0 40px rgba(72,130,255,.10),
+        inset 0 1px 1px rgba(255,255,255,.24),
+        inset 0 -2px 8px rgba(0,0,0,.5);
+
+    backdrop-filter: blur(35px);
+    -webkit-backdrop-filter: blur(35px);
+}
+
+#calc::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(
+        125deg,
+        rgba(255,255,255,.12),
+        transparent 25%,
+        transparent 75%,
+        rgba(115,151,255,.06)
+    );
+    z-index: -1;
+}
+
+/* Branding */
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.brand {
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-size: 19px;
+    color: #fff;
+    text-shadow: 0 0 18px #78aaff66;
+}
+
+.brand small {
+    display: block;
+    font-weight: 600;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #9fb8df;
+    margin-top: 4px;
+}
+
+.model {
+    font-size: 9px;
+    text-align: right;
+    color: #b5c4dc;
+    margin-top: 5px;
+    letter-spacing: .5px;
+}
+
+/* Solar panel */
+
+.solar {
+    width: 104px;
+    height: 27px;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #292a36 0 24px,
+            #10121a 24px 26px
+        );
+    border: 1px solid #68758b;
+    border-radius: 5px;
+    box-shadow:
+        inset 0 0 8px #000,
+        0 2px 5px #0008;
+}
+
+/* LCD display */
+
+.lcd {
+    position: relative;
+    margin: 14px 0 17px;
+
+    background:
+        linear-gradient(145deg,#d1ddbf,#b3c5a0);
+
+    border: 5px solid #111923;
+    border-radius: 11px;
+    padding: 5px 10px;
+
+    height: 108px;
+    color: #202c1d;
+
+    box-shadow:
+        inset 0 3px 12px #0005,
+        0 0 0 1px rgba(255,255,255,.12),
+        0 6px 18px #0005;
+
+    font-family: "Courier New",monospace;
+}
+
+.ind {
+    font-size: 9px;
+    height: 14px;
+    display: flex;
+    gap: 9px;
+    font-weight: 900;
+}
+
+.ind span {
+    opacity: .15;
+}
+
+.ind span.on {
+    opacity: 1;
+}
+
+.l1 {
+    height: 38px;
+    line-height: 38px;
+    font-size: 22px;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.l2 {
+    height: 42px;
+    line-height: 42px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.l2.sm,
+.l1.sm {
+    font-size: 13px;
+}
+
+.cur {
+    display: inline-block;
+    width: 2px;
+    height: 22px;
+    background: #18251b;
+    vertical-align: middle;
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.lcd.off .ind,
+.lcd.off .l1,
+.lcd.off .l2 {
+    visibility: hidden;
+}
+
+/* Scientific keyboard */
+
+#sci {
+    display: grid;
+    grid-template-columns: repeat(6,minmax(0,1fr));
+    gap: 5px 7px;
+    margin-bottom: 13px;
+}
+
+#num {
+    display: grid;
+    grid-template-columns: repeat(5,minmax(0,1fr));
+    gap: 6px 8px;
+}
+
+.kw {
+    position: relative;
+    padding-top: 12px;
+    min-width: 0;
+}
+
+.lab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 2px;
+    font-size: 9px;
+    font-weight: 800;
+    white-space: nowrap;
+    padding: 0 2px;
+}
+
+.lab .s {
+    color: #f2ca65;
+}
+
+.lab .a {
+    color: #ff8eaa;
+}
+
+/* Glass buttons */
+
+button {
+    width: 100%;
+    min-width: 0;
+    height: 30px;
+
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 9px;
+
+    font-weight: 750;
+    font-size: 12px;
+    cursor: pointer;
+
+    color: #f2f5ff;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.17),
+            rgba(255,255,255,.045)
+        );
+
+    box-shadow:
+        0 3px 0 rgba(0,0,0,.42),
+        0 5px 12px rgba(0,0,0,.22),
+        inset 0 1px 1px rgba(255,255,255,.15);
+
+    transition:
+        transform .12s ease,
+        background .15s ease,
+        box-shadow .15s ease;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+button:hover {
+    background: rgba(111,159,255,.24);
+    border-color: rgba(130,178,255,.5);
+}
+
+button:active,
+button.p {
+    transform: translateY(2px) scale(.97);
+    box-shadow:
+        0 1px 0 rgba(0,0,0,.4),
+        inset 0 1px 5px #0005;
+}
+
+/* Number keys */
+
+#num button {
+    height: 39px;
+    font-size: 17px;
+    border-radius: 11px;
+}
+
+#num .kw {
+    padding-top: 4px;
+}
+
+#num .n {
+    background:
+        linear-gradient(145deg,
+            rgba(255,255,255,.96),
+            rgba(205,216,235,.85));
+    color: #172033;
+    border: 1px solid #ffffffaa;
+    box-shadow:
+        0 3px 0 #77859c,
+        0 5px 10px #0005,
+        inset 0 1px white;
+}
+
+#num .n:hover {
+    background: white;
+}
+
+#num .dl {
+    background: linear-gradient(145deg,#70b5ff,#3469ca);
+    color: white;
+}
+
+#num .o {
+    background: linear-gradient(145deg,#66738e,#343e54);
+    color: white;
+}
+
+#num .sm {
+    font-size: 11px;
+}
+
+/* SHIFT and ALPHA */
+
+.sh {
+    background: linear-gradient(145deg,#ffe28b,#c18b20)!important;
+    color: #30220a!important;
+    border-color: #ffe8a3!important;
+}
+
+.al {
+    background: linear-gradient(145deg,#ff858a,#b93454)!important;
+    color: white!important;
+    border-color: #ffabb1!important;
+}
+
+.eq {
+    background: linear-gradient(145deg,#7697c6,#435b85);
+}
+
+/* Navigation pad */
+
+.pad {
+    grid-column: 3/5;
+    grid-row: 1/3;
+
+    position: relative;
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle at 35% 25%,
+            #ffffff,
+            #a8b7d0 55%,
+            #697b9a);
+
+    width: 96px;
+    aspect-ratio: 1;
+    margin: auto;
+
+    border: 2px solid #ffffff55;
+
+    box-shadow:
+        0 6px 15px #0008,
+        inset 0 2px 5px #fff;
+}
+
+.pad button {
+    position: absolute;
+    width: 30px;
+    height: 26px;
+
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    color: #1b2c49;
+    font-size: 16px;
+    padding: 0;
+}
+
+.pad .u { top: 4px; left: 33px; }
+.pad .d { bottom: 4px; left: 33px; }
+.pad .l { left: 4px; top: 35px; }
+.pad .r { right: 4px; top: 35px; }
+
+.pad i {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font: 800 8px system-ui;
+    color: #3c4c67;
+    font-style: normal;
+    pointer-events: none;
+}
+
+/* Help section */
+
+.help {
+    max-width: 420px;
+    font-size: 11px;
+    line-height: 1.8;
+    color: #9eabc0;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.help b {
+    color: #e7c36b;
+}
+
+/* Responsive layout */
+
+@media(max-height:760px) {
+    body {
+        align-items: flex-start;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    #calc {
+        max-height: calc(100dvh - 16px);
+        padding-top: 12px;
+        padding-bottom: 16px;
+    }
+
+    .lcd {
+        margin: 9px 0 12px;
+        height: 95px;
+    }
+
+    #sci {
+        gap: 3px 5px;
+        margin-bottom: 9px;
+    }
+
+    #num {
+        gap: 5px 6px;
+    }
+
+    #num button {
+        height: 35px;
+    }
+
+    .pad {
+        width: 86px;
+    }
+}
+
+@media(max-width:350px) {
+    #calc {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #sci {
+        gap: 3px 4px;
+    }
+
+    #num {
+        gap: 5px 5px;
+    }
+
+    .lab {
+        font-size: 8px;
+    }
+
+    .pad {
+        width: 80px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms!important;
+        transition-duration: .01ms!important;
+    }
+}
